@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>YourPet - como funciona </title>
+    <title>YourPet - Como Funciona</title>
     <style>
         :root {
             --roxo: #6a0dad;
@@ -70,7 +70,7 @@
         .hero {
             background: url('/imagem/funciona.png') no-repeat center center;
             background-size: cover;
-            height: 500px;
+            height: 450px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -99,6 +99,7 @@
         .hero h2 {
             font-size: 48px;
             margin-bottom: 20px;
+            text-transform: uppercase;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
         }
 
@@ -108,25 +109,62 @@
             text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
         }
 
+        /* Seção Como Funciona */
+        .steps {
+            padding: 60px 20px;
+            max-width: 1200px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
 
+        .step {
+            background: var(--branco);
+            padding: 30px 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
 
+        .step:hover {
+            transform: translateY(-5px);
+        }
 
+        .step h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: var(--roxo);
+        }
 
+        .step p {
+            font-size: 16px;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        footer {
+            background: var(--roxo);
+            color: var(--branco);
+            text-align: center;
+            padding: 15px;
+            margin-top: 40px;
+        }
     </style>
 </head>
 <body>
     <header>
         <div class="logo">
-            <!-- Substitua pelo seu logo real -->
             <img src="{{ asset('imagem/logo.png') }}" alt="Logo">
             <h1>YourPet</h1>
         </div>
- <nav>
+        <nav>
             <ul>
-                <li><a href="{{ route('site.principal') }}"> Home</a></li>
-                <li><a href="{{ route('site.sobrenos') }}"> Sobre Nós </a></li>
+                <li><a href="{{ route('site.principal') }}">Home</a></li>
+                <li><a href="{{ route('site.sobrenos') }}">Sobre Nós</a></li>
                 <li><a href="#">Animais para Adoção</a></li>
-                <li><a href="{{ route('como-funciona') }}">Como Funciona</a> </li>
+                <li><a href="{{ route('como-funciona') }}">Como Funciona</a></li>
                 <li><a href="#">Contato</a></li>
             </ul>
         </nav>
@@ -134,11 +172,27 @@
 
     <section class="hero">
         <div class="hero-content">
-            <h2>como funciona</h2>
-            <p>Conectamos animais que precisam de um lar com pessoas dispostas a dar amor e carinho</p>
+            <h2>Como Funciona</h2>
+            <p>Conectamos animais que precisam de um lar com pessoas dispostas a dar amor e carinho.</p>
         </div>
     </section>
 
+    <section class="steps">
+        <div class="step">
+            <h3>1. Cadastro</h3>
+            <p>Crie sua conta na plataforma e complete seu perfil para começar.</p>
+        </div>
+        <div class="step">
+            <h3>2. Escolha</h3>
+            <p>Navegue pelos animais disponíveis e encontre aquele que combina com você.</p>
+        </div>
+        <div class="step">
+            <h3>3. Solicitação</h3>
+            <p>Envie sua solicitação de adoção e aguarde a análise da instituição parceira.</p>
+        </div>
+        <div class="step">
+            <h3>4. Adoção e Acompanhamento</h3>
+            <p>Finalize a adoção e receba suporte e dicas para cuidar do seu novo amigo.</p>
         </div>
     </section>
 
