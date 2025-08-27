@@ -1,10 +1,9 @@
-<div>
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>YourPet - Plataforma de Adoção de Animais</title>
+    <title>YourPet - Contato</title>
     <style>
         :root {
             --roxo: #6a0dad;
@@ -68,9 +67,9 @@
         }
 
         .hero {
-         background: url('/imagem/home.png') no-repeat center center;
+            background: url('/imagem/contato.png') no-repeat center center;
             background-size: cover;
-            height: 500px;
+            height: 400px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -97,80 +96,68 @@
         }
 
         .hero h2 {
-            font-size: 48px;
-            margin-bottom: 20px;
+            font-size: 42px;
+            margin-bottom: 15px;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
         }
 
         .hero p {
             font-size: 20px;
-            margin-bottom: 30px;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+            margin-bottom: 0;
         }
 
-        .btn {
-            display: inline-block;
-            background-color: var(--azul-goiaba);
-            color: var(--branco);
-            padding: 12px 30px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 18px;
-            transition: all 0.3s ease;
-            border: none;
-            cursor: pointer;
-        }
-
-        .btn:hover {
-            background-color: var(--roxo);
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-        }
-
-        .features {
-            padding: 80px 20px;
-            text-align: center;
-            background-color: var(--branco);
-        }
-
-        .features h2 {
-            color: var(--roxo);
-            font-size: 36px;
-            margin-bottom: 50px;
-        }
-
-        .feature-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
-            max-width: 1200px;
+        .contato {
+            padding: 60px 20px;
+            max-width: 1000px;
             margin: 0 auto;
         }
 
-        .feature {
-            padding: 30px;
-            border-radius: 10px;
-            background-color: #f0f8ff;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            transition: all 0.3s ease;
-        }
-
-        .feature:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
-        }
-
-        .feature img {
-            width: 80px;
-            height: 80px;
-            margin-bottom: 20px;
-        }
-
-        .feature h3 {
+        .contato h2 {
+            text-align: center;
             color: var(--roxo);
-            font-size: 24px;
-            margin-bottom: 15px;
+            font-size: 32px;
+            margin-bottom: 40px;
+        }
+
+        .contato-form {
+            background: #fff;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .contato-form label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--roxo);
+        }
+
+        .contato-form input, 
+        .contato-form textarea {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            border: 1px solid #ddd;
+            font-size: 16px;
+        }
+
+        .contato-form button {
+            background: var(--azul-goiaba);
+            color: var(--branco);
+            border: none;
+            padding: 14px 30px;
+            border-radius: 50px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .contato-form button:hover {
+            background: var(--roxo);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
         }
 
         footer {
@@ -185,27 +172,11 @@
             margin: 0;
             font-size: 16px;
         }
-
-        @media (max-width: 768px) {
-            .hero h2 {
-                font-size: 36px;
-            }
-
-            .hero p {
-                font-size: 18px;
-            }
-
-            nav ul {
-                flex-direction: column;
-                gap: 10px;
-            }
-        }
     </style>
 </head>
 <body>
     <header>
         <div class="logo">
-            <!-- Substitua pelo seu logo real -->
             <img src="{{ asset('imagem/logo.png') }}" alt="Logo">
             <h1>YourPet</h1>
         </div>
@@ -214,7 +185,7 @@
                 <li><a href="{{ route('site.principal') }}"> Home</a></li>
                 <li><a href="{{ route('site.sobrenos') }}"> Sobre Nós </a></li>
                 <li><a href="#">Animais para Adoção</a></li>
-                <li><a href="{{ route('como-funciona') }}">Como Funciona</a> </li>
+                <li><a href="{{ route('como-funciona') }}">Como Funciona</a></li>
                 <li><a href="{{ route('site.contato') }}">Contato</a></li>
             </ul>
         </nav>
@@ -222,30 +193,27 @@
 
     <section class="hero">
         <div class="hero-content">
-            <h2>Encontre seu novo melhor amigo</h2>
-            <p>Conectamos animais que precisam de um lar com pessoas dispostas a dar amor e carinho</p>
-            <a href="#" class="btn">Ver animais disponíveis</a>
+            <h2>Entre em Contato</h2>
+            <p>Estamos prontos para tirar suas dúvidas e ouvir suas sugestões.</p>
         </div>
     </section>
 
-    <section class="features">
-        <h2>Por que escolher o YourPet?</h2>
-        <div class="feature-grid">
-            <div class="feature">
-                <img src="https://via.placeholder.com/80" alt="Ícone de segurança">
-                <h3>Adoção Segura</h3>
-                <p>Todas as ONGs e protetores são verificados para garantir a segurança do processo.</p>
-            </div>
-            <div class="feature">
-                <img src="https://via.placeholder.com/80" alt="Ícone de busca">
-                <h3>Busca Inteligente</h3>
-                <p>Encontre o pet perfeito com nosso sistema de busca avançado por características.</p>
-            </div>
-            <div class="feature">
-                <img src="https://via.placeholder.com/80" alt="Ícone de suporte">
-                <h3>Suporte Completo</h3>
-                <p>Te acompanhamos em todo o processo de adoção e damos suporte pós-adoção.</p>
-            </div>
+    <section class="contato">
+        <h2>Fale Conosco</h2>
+        <div class="contato-form">
+            <form action="{{ route('contato.store') }}" method="POST">
+                @csrf
+                <label for="nome">Nome</label>
+                <input type="text" id="nome" name="name" placeholder="Seu nome completo" required>
+
+                <label for="email">E-mail</label>
+                <input type="email" id="email" name="email" placeholder="Seu melhor e-mail" required>
+
+                <label for="mensagem">Mensagem</label>
+                <textarea id="mensagem" name="message" rows="5" placeholder="Escreva sua mensagem..." required></textarea>
+
+                <button type="submit">Enviar Mensagem</button>
+            </form>
         </div>
     </section>
 
@@ -254,4 +222,3 @@
     </footer>
 </body>
 </html>
-</div>
