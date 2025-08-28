@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -24,7 +25,7 @@
             color: var(--branco);
             padding: 20px 0;
             text-align: center;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
 
         .logo {
@@ -67,15 +68,18 @@
         }
 
         .hero {
-            background: url('/imagem/contato.png') no-repeat center center;
+            background: url("{{ asset('imagem/contato.png') }}") no-repeat center center;
             background-size: cover;
-            height: 400px;
+            background-attachment: fixed;
+            background-attachment: scroll;
+            min-height: 70vh;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
             position: relative;
         }
+
 
         .hero::before {
             content: '';
@@ -84,7 +88,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0,0,0,0.4);
+            background: rgba(0, 0, 0, 0.4);
         }
 
         .hero-content {
@@ -98,7 +102,7 @@
         .hero h2 {
             font-size: 42px;
             margin-bottom: 15px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
         }
 
         .hero p {
@@ -123,7 +127,7 @@
             background: #fff;
             padding: 40px;
             border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
         }
 
         .contato-form label {
@@ -133,7 +137,7 @@
             color: var(--roxo);
         }
 
-        .contato-form input, 
+        .contato-form input,
         .contato-form textarea {
             width: 100%;
             padding: 12px;
@@ -157,7 +161,7 @@
         .contato-form button:hover {
             background: var(--roxo);
             transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
         }
 
         footer {
@@ -174,6 +178,7 @@
         }
     </style>
 </head>
+
 <body>
     <header>
         <div class="logo">
@@ -221,4 +226,5 @@
         <p>&copy; 2025 YourPet - Plataforma de Adoção de Animais. Todos os direitos reservados.</p>
     </footer>
 </body>
+
 </html>
