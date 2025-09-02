@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>YourPet - Contato</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
             --roxo: #6a0dad;
@@ -25,54 +25,44 @@
             color: var(--branco);
             padding: 20px 0;
             text-align: center;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
 
-        .logo {
+        header .logo {
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 15px;
+            gap: 10px;
         }
 
-        .logo img {
+        header .logo img {
             height: 50px;
-            margin-right: 15px;
         }
 
-        .logo h1 {
-            font-size: 28px;
-            margin: 0;
-            font-weight: 700;
-        }
-
-        nav ul {
+        header nav ul {
             list-style: none;
-            padding: 0;
             display: flex;
             justify-content: center;
             gap: 30px;
+            margin-top: 15px;
+            padding: 0;
         }
 
-        nav a {
+        header nav a {
             color: var(--branco);
             text-decoration: none;
-            font-weight: 500;
-            font-size: 18px;
-            transition: all 0.3s ease;
+            font-weight: bold;
+            transition: 0.3s;
         }
 
-        nav a:hover {
+        header nav a:hover {
             text-decoration: underline;
-            transform: translateY(-2px);
         }
 
+        /* Banner */
         .hero {
-            background: url("{{ asset('imagem/contato.png') }}") no-repeat center center;
+            background: url('/imagem/contato-banner.png') no-repeat center center;
             background-size: cover;
-            background-attachment: fixed;
-            background-attachment: scroll;
-            min-height: 70vh;
+            height: 350px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -80,151 +70,134 @@
             position: relative;
         }
 
-
         .hero::before {
             content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.4);
+            inset: 0;
+            background: rgba(0, 0, 0, 0.5);
         }
 
         .hero-content {
             position: relative;
             z-index: 1;
             color: var(--branco);
-            max-width: 800px;
+        }
+
+        .hero-content h1 {
+            font-size: 42px;
+            margin-bottom: 10px;
+        }
+
+        .hero-content p {
+            font-size: 18px;
+        }
+
+        /* Equipe */
+        .equipe {
+            text-align: center;
+            margin: 60px auto;
+            max-width: 1200px;
             padding: 0 20px;
         }
 
-        .hero h2 {
-            font-size: 42px;
-            margin-bottom: 15px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        .contato-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
         }
 
-        .hero p {
-            font-size: 20px;
-            margin-bottom: 0;
-        }
-
-        .contato {
-            padding: 60px 20px;
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-
-        .contato h2 {
-            text-align: center;
-            color: var(--roxo);
-            font-size: 32px;
-            margin-bottom: 40px;
-        }
-
-        .contato-form {
+        .card {
             background: #fff;
-            padding: 40px;
-            border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            border-radius: 12px;
+            padding: 25px;
+            width: 280px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            text-align: center;
         }
 
-        .contato-form label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 600;
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+
+        .card i {
+            font-size: 40px;
             color: var(--roxo);
-        }
-
-        .contato-form input,
-        .contato-form textarea {
-            width: 100%;
-            padding: 12px;
-            margin-bottom: 20px;
-            border-radius: 10px;
-            border: 1px solid #ddd;
-            font-size: 16px;
-        }
-
-        .contato-form button {
-            background: var(--azul-goiaba);
-            color: var(--branco);
-            border: none;
-            padding: 14px 30px;
-            border-radius: 50px;
-            font-size: 18px;
-            cursor: pointer;
-            transition: 0.3s;
-        }
-
-        .contato-form button:hover {
-            background: var(--roxo);
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            margin-bottom: 15px;
         }
 
         footer {
             background: linear-gradient(135deg, var(--roxo), var(--azul-goiaba));
             color: var(--branco);
             text-align: center;
-            padding: 30px 0;
+            padding: 20px 0;
             margin-top: 50px;
-        }
-
-        footer p {
-            margin: 0;
-            font-size: 16px;
         }
     </style>
 </head>
-
 <body>
     <header>
         <div class="logo">
-            <img src="{{ asset('imagem/logo.png') }}" alt="Logo">
+            <img src="{{ asset('imagem/logo.png') }}" alt="Logo YourPet">
             <h1>YourPet</h1>
         </div>
         <nav>
             <ul>
-                <li><a href="{{ route('site.principal') }}"> Home</a></li>
-                <li><a href="{{ route('site.sobrenos') }}"> Sobre Nós </a></li>
-                <li><a href="#">Animais para Adoção</a></li>
+                <li><a href="{{ route('site.principal') }}">Home</a></li>
+                <li><a href="{{ route('site.sobrenos') }}">Sobre Nós</a></li>
+                <li><a href="#">Animais</a></li>
                 <li><a href="{{ route('como-funciona') }}">Como Funciona</a></li>
                 <li><a href="{{ route('site.contato') }}">Contato</a></li>
             </ul>
         </nav>
     </header>
 
-    <section class="hero">
-        <div class="hero-content">
-            <h2>Entre em Contato</h2>
-            <p>Estamos prontos para tirar suas dúvidas e ouvir suas sugestões.</p>
+    <section class="contato equipe">
+    <h2>Equipe YourPet</h2>
+    <p>Aqui estão os contatos de todos os integrantes do grupo:</p>
+
+    <div class="contato-grid">
+        <div class="card">
+            <i class="fas fa-user"></i>
+            <h3>Eduardo Joaquim</h3>
+            <p><strong>Tel:</strong> <a href="tel:+5511978112728">(11) 97811-2728</a></p>
+            <p><strong>Email:</strong> <a href="mailto:joaquimeeduardo680@gmail.com">joaquimeeduardo680@gmail.com</a></p>
         </div>
-    </section>
 
-    <section class="contato">
-        <h2>Fale Conosco</h2>
-        <div class="contato-form">
-            <form action="{{ route('contato.store') }}" method="POST">
-                @csrf
-                <label for="nome">Nome</label>
-                <input type="text" id="nome" name="name" placeholder="Seu nome completo" required>
-
-                <label for="email">E-mail</label>
-                <input type="email" id="email" name="email" placeholder="Seu melhor e-mail" required>
-
-                <label for="mensagem">Mensagem</label>
-                <textarea id="mensagem" name="message" rows="5" placeholder="Escreva sua mensagem..." required></textarea>
-
-                <button type="submit">Enviar Mensagem</button>
-            </form>
+        <div class="card">
+            <i class="fas fa-user"></i>
+            <h3>Matheus Agostinho</h3>
+            <p><strong>Tel:</strong> <a href="tel:+5511993463127">(11) 99346-3127</a></p>
+            <p><strong>Email:</strong> <a href="mailto:matheusagostinhodelima82@gmail.com">matheusagostinhodelima82@gmail.com</a></p>
         </div>
-    </section>
+
+        <div class="card">
+            <i class="fas fa-user"></i>
+            <h3>Antony Del Rey</h3>
+            <p><strong>Tel:</strong> <a href="tel:+5511951473885">(11) 95147-3885</a></p>
+            <p><strong>Email:</strong> <a href="mailto:delrey357@gmail.com">delrey357@gmail.com</a></p>
+        </div>
+
+        <div class="card">
+            <i class="fas fa-user"></i>
+            <h3>Pedro Damas</h3>
+            <p><strong>Tel:</strong> <a href="tel:+5511954362456">(11) 95436-2456</a></p>
+            <p><strong>Email:</strong> <a href="mailto:pedrodamas840@gmail.com">pedrodamas840@gmail.com</a></p>
+        </div>
+
+        <div class="card">
+            <i class="fas fa-user"></i>
+            <h3>Matheus Henrrique</h3>
+            <p><strong>Tel:</strong> <a href="tel:+5511933336975">(11) 93333-6975</a></p>
+            <p><strong>Email:</strong> <a href="mailto:mahteush14@gmail.com">mahteush14@gmail.com</a></p>
+        </div>
+    </div>
+</section>
 
     <footer>
         <p>&copy; 2025 YourPet - Plataforma de Adoção de Animais. Todos os direitos reservados.</p>
     </footer>
 </body>
-
 </html>
