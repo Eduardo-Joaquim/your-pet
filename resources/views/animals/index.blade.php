@@ -1,10 +1,9 @@
-<div>
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>YourPet - Plataforma de Adoção de Animais</title>
+    <title>YourPet - Animais para Adoção</title>
     <style>
         :root {
             --roxo: #6a0dad;
@@ -68,7 +67,7 @@
         }
 
         .hero {
-         background: url('/imagem/home.png') no-repeat center center;
+            background: url('/imagem/home.png') no-repeat center center;
             background-size: cover;
             height: 500px;
             display: flex;
@@ -205,7 +204,6 @@
 <body>
     <header>
         <div class="logo">
-            <!-- Substitua pelo seu logo real -->
             <img src="{{ asset('imagem/logo.png') }}" alt="Logo">
             <h1>YourPet</h1>
         </div>
@@ -214,8 +212,8 @@
                 <li><a href="{{ route('site.principal') }}"> Home</a></li>
                 <li><a href="{{ route('site.sobrenos') }}"> Sobre Nós </a></li>
                 <li><a href="{{ route('animals.index') }}">Animais para Adoção</a></li>
-                <li><a href="{{ route('como-funciona') }}">Como Funciona</a> </li>
-                <li><a href="{{ route('site.contato') }}">Contato</a></li>
+                <li><a href="{{ route('como-funciona') }}">Como Funciona</a></li>
+                <li><a href="#">Contato</a></li>
             </ul>
         </nav>
     </header>
@@ -224,7 +222,32 @@
         <div class="hero-content">
             <h2>Encontre seu novo melhor amigo</h2>
             <p>Conectamos animais que precisam de um lar com pessoas dispostas a dar amor e carinho</p>
-            <a href="#" class="btn">Ver animais disponíveis</a>
+            <a href="{{ route('animals.index') }}" class="btn">Ver animais disponíveis</a>
+        </div>
+    </section>
+
+    <section class="features">
+        <h2>Animais disponíveis para adoção</h2>
+
+        @if(session('success'))
+            <div style="margin-bottom:20px; color:green;">{{ session('success') }}</div>
+        @endif
+
+        <a href="{{ route('animals.create') }}" class="btn" style="margin-bottom:30px;">Cadastrar Novo Animal</a>
+
+        <div class="feature-grid">
+            @forelse($animals as $animal)
+                <div class="feature">
+                    <img src="{{ asset('storage/' . $animal->imagem) }}" alt="{{ $animal->nome }}">
+                    <h3>{{ $animal->nome }}</h3>
+                    <p>Espécie: {{ $animal->especie }}</p>
+                    <p>Idade: {{ $animal->idade }} anos</p>
+                    <p>{{ Str::limit($animal->descricao, 80) }}</p>
+                    <a href="{{ route('animals.show', $animal->id) }}" class="btn" style="margin-top:10px;">Ver detalhes</a>
+                </div>
+            @empty
+                <p>Nenhum animal disponível no momento. Volte mais tarde!</p>
+            @endforelse
         </div>
     </section>
 
@@ -254,4 +277,3 @@
     </footer>
 </body>
 </html>
-</div>
