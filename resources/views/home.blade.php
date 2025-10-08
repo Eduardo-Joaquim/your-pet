@@ -210,14 +210,37 @@
             <h1>YourPet</h1>
         </div>
         <nav>
-            <ul>
-                <li><a href="{{ route('site.principal') }}"> Home</a></li>
-                <li><a href="{{ route('site.sobrenos') }}"> Sobre Nós </a></li>
-                <li><a href="{{ route('animals.index') }}">Animais para Adoção</a></li>
-                <li><a href="{{ route('como-funciona') }}">Como Funciona</a> </li>
-                <li><a href="{{ route('site.contato') }}">Contato</a></li>
-            </ul>
-        </nav>
+    <ul>
+        <li><a href="{{ route('site.principal') }}">Home</a></li>
+        <li><a href="{{ route('site.sobrenos') }}">Sobre Nós</a></li>
+        <li><a href="{{ route('animals.index') }}">Animais para Adoção</a></li>
+        <li><a href="{{ route('como-funciona') }}">Como Funciona</a></li>
+        <li><a href="{{ route('site.contato') }}">Contato</a></li>
+
+        @auth
+            <!-- Se o usuário estiver logado -->
+            <li style="position: relative;">
+                <button id="user-btn" class="btn" style="background: transparent; border: none; color: white; cursor: pointer;">
+                    👤 {{ Auth::user()->name }}
+                </button>
+
+                <!-- Menu suspenso -->
+                <div id="user-menu" style="display: none; position: absolute; right: 0; background: white; color: black; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.2); min-width: 180px; text-align: left; padding: 10px;">
+                    <p style="margin: 5px 0;">Email: {{ Auth::user()->email }}</p>
+                    <a href="{{ route('profile.edit') }}" style="display: block; padding: 8px 10px; color: #6a0dad; text-decoration: none;">Perfil</a>
+                    <form method="POST" action="{{ route('logout') }}">
+                        @csrf
+                        <button type="submit" style="width: 100%; background: none; border: none; color: red; padding: 8px 10px; text-align: left; cursor: pointer;">Sair</button>
+                    </form>
+                </div>
+            </li>
+        @else
+            <!-- Se o usuário NÃO estiver logado -->
+            <li><a href="{{ route('login') }}" class="btn btn-outline">Entrar</a></li>
+            <li><a href="{{ route('register') }}" class="btn btn-primary">Cadastrar</a></li>
+        @endauth
+    </ul>
+</nav>
     </header>
 
     <section class="hero">
@@ -252,6 +275,26 @@
     <footer>
         <p>&copy; 2025 YourPet - Plataforma de Adoção de Animais. Todos os direitos reservados.</p>
     </footer>
+
+    <script>
+document.addEventListener('DOMContentLoaded', () => {
+    const userBtn = document.getElementById('user-btn');
+    const userMenu = document.getElementById('user-menu');
+
+    if (userBtn && userMenu) {
+        userBtn.addEventListener('click', () => {
+            userMenu.style.display = userMenu.style.display === 'block' ? 'none' : 'block';
+        });
+
+        // Fecha o menu se clicar fora dele
+        document.addEventListener('click', (e) => {
+            if (!userBtn.contains(e.target) && !userMenu.contains(e.target)) {
+                userMenu.style.display = 'none';
+            }
+        });
+    }
+});
+</script>
 </body>
 </html>
 </div>
