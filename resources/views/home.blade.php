@@ -200,48 +200,142 @@
                 gap: 10px;
             }
         }
+        /* ===== TOPO ===== */
+.top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 50px;
+    position: relative;
+}
+
+.user-actions {
+    position: absolute;
+    top: 15px;
+    right: 40px;
+    display: flex;
+    gap: 10px;
+}
+
+/* ===== BOTÕES DE LOGIN/CADASTRO ===== */
+.btn-login, .btn-register {
+    background-color: var(--azul-goiaba);
+    color: var(--branco);
+    padding: 8px 20px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+    border: none;
+}
+
+.btn-login:hover, .btn-register:hover {
+    background-color: var(--roxo);
+    transform: translateY(-2px);
+}
+
+/* ===== MENU DO USUÁRIO ===== */
+.user-btn {
+    background: var(--azul-goiaba);
+    color: var(--branco);
+    border: none;
+    border-radius: 30px;
+    padding: 8px 20px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.user-btn:hover {
+    background: var(--roxo);
+}
+
+.user-menu-container {
+    position: relative;
+}
+
+.user-menu {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 45px;
+    background: rgba(255,255,255,0.95);
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    min-width: 200px;
+    padding: 10px;
+    z-index: 1000;
+}
+
+.user-menu p {
+    color: #333;
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
+.user-menu a,
+.user-menu button {
+    display: block;
+    width: 100%;
+    background: none;
+    border: none;
+    color: var(--roxo);
+    text-decoration: none;
+    text-align: left;
+    padding: 8px 10px;
+    font-size: 14px;
+    border-radius: 5px;
+    transition: 0.2s;
+}
+
+.user-menu a:hover,
+.user-menu button:hover {
+    background-color: rgba(106, 13, 173, 0.1);
+}
+
     </style>
 </head>
 <body>
-    <header>
+    
+<header>
+    <div class="top-bar">
         <div class="logo">
-            <!-- Substitua pelo seu logo real -->
             <img src="{{ asset('imagem/logo.png') }}" alt="Logo">
             <h1>YourPet</h1>
         </div>
-        <nav>
-    <ul>
-        <li><a href="{{ route('site.principal') }}">Home</a></li>
-        <li><a href="{{ route('site.sobrenos') }}">Sobre Nós</a></li>
-        <li><a href="{{ route('animals.index') }}">Animais para Adoção</a></li>
-        <li><a href="{{ route('como-funciona') }}">Como Funciona</a></li>
-        <li><a href="{{ route('site.contato') }}">Contato</a></li>
 
-        @auth
-            <!-- Se o usuário estiver logado -->
-            <li style="position: relative;">
-                <button id="user-btn" class="btn" style="background: transparent; border: none; color: white; cursor: pointer;">
-                    👤 {{ Auth::user()->name }}
-                </button>
-
-                <!-- Menu suspenso -->
-                <div id="user-menu" style="display: none; position: absolute; right: 0; background: white; color: black; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.2); min-width: 180px; text-align: left; padding: 10px;">
-                    <p style="margin: 5px 0;">Email: {{ Auth::user()->email }}</p>
-                    <a href="{{ route('profile.edit') }}" style="display: block; padding: 8px 10px; color: #6a0dad; text-decoration: none;">Perfil</a>
-                    <form method="POST" action="{{ route('logout') }}">
-                        @csrf
-                        <button type="submit" style="width: 100%; background: none; border: none; color: red; padding: 8px 10px; text-align: left; cursor: pointer;">Sair</button>
-                    </form>
+        <div class="user-actions">
+            @auth
+                <div class="user-menu-container">
+                    <button id="user-btn" class="user-btn">
+                        👤 {{ Auth::user()->name }}
+                    </button>
+                    <div id="user-menu" class="user-menu">
+                        <p>Email: {{ Auth::user()->email }}</p>
+                        <a href="{{ route('profile.edit') }}">Perfil</a>
+                        <form method="POST" action="{{ route('logout') }}">
+                            @csrf
+                            <button type="submit">Sair</button>
+                        </form>
+                    </div>
                 </div>
-            </li>
-        @else
-            <!-- Se o usuário NÃO estiver logado -->
-            <li><a href="{{ route('login') }}" class="btn btn-outline">Entrar</a></li>
-            <li><a href="{{ route('register') }}" class="btn btn-primary">Cadastrar</a></li>
-        @endauth
-    </ul>
-</nav>
-    </header>
+            @else
+                <a href="{{ route('login') }}" class="btn-login">Entrar</a>
+                <a href="{{ route('register') }}" class="btn-register">Cadastrar</a>
+            @endauth
+        </div>
+    </div>
+
+    <nav>
+        <ul>
+            <li><a href="{{ route('site.principal') }}">Home</a></li>
+            <li><a href="{{ route('site.sobrenos') }}">Sobre Nós</a></li>
+            <li><a href="{{ route('animals.index') }}">Animais para Adoção</a></li>
+            <li><a href="{{ route('como-funciona') }}">Como Funciona</a></li>
+            <li><a href="{{ route('site.contato') }}">Contato</a></li>
+        </ul>
+    </nav>
+</header>
 
     <section class="hero">
         <div class="hero-content">
@@ -282,13 +376,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const userMenu = document.getElementById('user-menu');
 
     if (userBtn && userMenu) {
-        userBtn.addEventListener('click', () => {
+        userBtn.addEventListener('click', (e) => {
+            e.stopPropagation(); // impede o fechamento imediato
             userMenu.style.display = userMenu.style.display === 'block' ? 'none' : 'block';
         });
 
-        // Fecha o menu se clicar fora dele
+        // Fecha o menu ao clicar fora
         document.addEventListener('click', (e) => {
-            if (!userBtn.contains(e.target) && !userMenu.contains(e.target)) {
+            if (!userMenu.contains(e.target) && e.target !== userBtn) {
                 userMenu.style.display = 'none';
             }
         });
