@@ -349,17 +349,17 @@
         <h2>Por que escolher o YourPet?</h2>
         <div class="feature-grid">
             <div class="feature">
-                <img src="https://via.placeholder.com/80" alt="Ícone de segurança">
+                <img src="{{ asset('imagem/adoção.png') }}" alt="Ícone de segurança">
                 <h3>Adoção Segura</h3>
                 <p>Todas as ONGs e protetores são verificados para garantir a segurança do processo.</p>
             </div>
             <div class="feature">
-                <img src="https://via.placeholder.com/80" alt="Ícone de busca">
+                <img src="{{ asset('imagem/pesquisa.png') }}" alt="Ícone de busca">
                 <h3>Busca Inteligente</h3>
                 <p>Encontre o pet perfeito com nosso sistema de busca avançado por características.</p>
             </div>
             <div class="feature">
-                <img src="https://via.placeholder.com/80" alt="Ícone de suporte">
+                <img src="{{ asset('imagem/suporte.png') }}" alt="Ícone de suporte">
                 <h3>Suporte Completo</h3>
                 <p>Te acompanhamos em todo o processo de adoção e damos suporte pós-adoção.</p>
             </div>
