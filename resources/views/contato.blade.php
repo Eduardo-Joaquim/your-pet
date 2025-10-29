@@ -262,7 +262,7 @@
             <ul>
                 <li><a href="{{ route('site.principal') }}">Home</a></li>
                 <li><a href="{{ route('site.sobrenos') }}">Sobre Nós</a></li>
-                <li><a href="#">Animais</a></li>
+                <li><a href="{{ route('animals.index') }}">Animais para Adoção</a></li>
                 <li><a href="{{ route('como-funciona') }}">Como Funciona</a></li>
                 <li><a href="{{ route('site.contato') }}">Contato</a></li>
             </ul>
