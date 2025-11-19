@@ -386,17 +386,17 @@
                 <div class="team-member">
                     <img src="{{ asset('imagem/antoni.png') }}" alt="Antony de Souza Del Rey">
                     <h4>Antony de Souza Del Rey</h4>
-                    <p>Desenvolvedor Back-end</p>
+                    <p>Analista de Suporte</p>
                 </div>
                 <div class="team-member">
                     <img src="{{ asset('imagem/edu.png') }}" alt="Eduardo Joaquim">
                     <h4>Eduardo Joaquim</h4>
-                    <p>Desenvolvedor Front-end</p>
+                    <p>Gerente do Projeto</p>
                 </div>
                 <div class="team-member">
                     <img src="{{ asset('imagem/agosto.png') }}" alt="Matheus Agostinho de Lima">
                     <h4>Matheus Agostinho de Lima</h4>
-                    <p>Analista de Sistemas</p>
+                    <p>Analista de Pacote Office</p>
                 </div>
                 <div class="team-member">
                     <img src="{{ asset('imagem/preto.png') }}" alt="Matheus Henrique de Souza Gonçalves Campos">
@@ -406,7 +406,7 @@
                 <div class="team-member">
                     <img src="{{ asset('imagem/pedro.png') }}" alt="Pedro Henrique Damas Hinno">
                     <h4>Pedro Henrique Damas Hinno</h4>
-                    <p>Gerente de Projeto</p>
+                    <p>Desenvolvedor Do Projeto</p>
                 </div>
             </div>
         </section>

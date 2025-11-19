@@ -134,6 +134,37 @@
             }
         }
     </style>
+
+<style>
+    .arrow-down {
+        font-size: 45px;
+        color: #4C6FFF;
+        text-decoration: none;
+        font-weight: bold;
+        display: inline-block;
+        margin-top: 20px;
+        animation: bounce 1.3s infinite;
+    }
+
+    @keyframes bounce {
+        0%, 20%, 50%, 80%, 100% {
+            transform: translateY(0);
+        }
+        40% {
+            transform: translateY(10px);
+        }
+        60% {
+            transform: translateY(5px);
+        }
+    }
+
+    .arrow-down:hover {
+        color: #2e4fe0;
+        cursor: pointer;
+    }
+</style>
+
+
 </head>
 
 <body>
@@ -165,7 +196,9 @@
         <div class="hero-content">
             <h2>🐾 Adotar animais</h2>
             <p>Veja todos os pets disponíveis e encontre o companheiro ideal.</p>
-            <a href="{{ route('animals.index') }}" class="btn">Ver animais</a>
+            <a href="#lista-animais" class="arrow-down">
+    ⬇
+</a>
         </div>
     </div>
 

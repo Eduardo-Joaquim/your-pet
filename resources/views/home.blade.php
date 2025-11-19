@@ -341,7 +341,7 @@
         <div class="hero-content">
             <h2>Encontre seu novo melhor amigo</h2>
             <p>Conectamos animais que precisam de um lar com pessoas dispostas a dar amor e carinho</p>
-            <a href="#" class="btn">Ver animais disponíveis</a>
+            <a href="{{ route('animals.index') }}" class="btn">Ver animais disponíveis</a>
         </div>
     </section>
 
